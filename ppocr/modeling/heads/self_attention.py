@@ -25,6 +25,7 @@ from paddle.nn import functional as F
 import paddle.fluid as fluid
 import numpy as np
 gradient_clip = 10
+from paddle.nn.initializer import Constant
 
 
 class WrapEncoderForFeature(nn.Layer):
@@ -289,9 +290,9 @@ class PrePostProcessLayer(nn.Layer):
                         paddle.nn.LayerNorm(
                             normalized_shape=d_model,
                             weight_attr=fluid.ParamAttr(
-                                initializer=fluid.initializer.Constant(1.)),
+                                initializer=Constant(1.)),
                             bias_attr=fluid.ParamAttr(
-                                initializer=fluid.initializer.Constant(0.)))))
+                                initializer=Constant(0.)))))
             elif cmd == "d":  # add dropout
                 self.functors.append(lambda x: F.dropout(
                     x, p=dropout_rate, mode="downscale_in_infer")

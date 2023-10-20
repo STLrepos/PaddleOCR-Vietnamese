@@ -11,7 +11,7 @@ def print_draw_crop_rec_res( img_crop_list, img_name):
           crop_name=img_name+'_'+str(bno)+'.jpg'
           crop_name_w = "./train/img_crop/{}".format(crop_name)
           cv2.imwrite(crop_name_w, img_crop_list[bno])
-          crop_label.write("{0}\t{1}\n".format(crop_name, text[bno]))
+          crop_label.write("{0}\t{1}\n".format(crop_name, text[bno])) 
 
 crop_label = open('./train/crop_label.txt','w')
 with open('./train/train_label.txt','r') as file_text:
@@ -48,4 +48,4 @@ for img_file in img_files:
     os.mkdir('./train/img_crop') 
   print_draw_crop_rec_res(img_crop_list,img_name)
 
-
+print("ok")

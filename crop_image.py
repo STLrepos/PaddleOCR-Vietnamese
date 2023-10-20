@@ -5,13 +5,25 @@ import copy
 import numpy as np
 from tools.infer.utility import draw_ocr_box_txt, get_rotate_crop_image
 
-def print_draw_crop_rec_res( img_crop_list, img_name):
-        bbox_num = len(img_crop_list)
-        for bno in range(bbox_num):
-          crop_name=img_name+'_'+str(bno)+'.jpg'
-          crop_name_w = "./train/img_crop/{}".format(crop_name)
-          cv2.imwrite(crop_name_w, img_crop_list[bno])
-          crop_label.write("{0}\t{1}\n".format(crop_name, text[bno])) 
+def print_draw_crop_rec_res(img_crop_list, img_name):
+
+  bbox_num = len(img_crop_list)
+
+  for bno in range(bbox_num):
+    
+    crop_name = img_name + '_' + str(bno) + '.jpg'
+    crop_name_w = "./train/img_crop/{}".format(crop_name)
+    
+    cv2.imwrite(crop_name_w, img_crop_list[bno])
+    
+    first_char = ''
+    # Lấy ký tự đầu tiên của nhãn
+    if text[bno]:
+      first_char = text[bno][0]
+      
+    
+    # Ghi ra file label
+    crop_label.write("{0}\t{1}\n".format(crop_name, text[bno]))
 
 crop_label = open('./train/crop_label.txt','w')
 with open('./train/train_label.txt','r') as file_text:

@@ -325,7 +325,7 @@ class PrepareEncoder(nn.Layer):
 
     def forward(self, src_word, src_pos):
         src_word_emb = src_word
-        src_word_emb = fluid.layers.cast(src_word_emb, 'float32')
+        src_word_emb = paddle.cast(src_word_emb, 'float32')
         src_word_emb = paddle.scale(x=src_word_emb, scale=self.src_emb_dim**0.5)
         src_pos = paddle.squeeze(src_pos, axis=-1)
         src_pos_enc = self.emb(src_pos)
@@ -368,7 +368,7 @@ class PrepareDecoder(nn.Layer):
         self.dropout_rate = dropout_rate
 
     def forward(self, src_word, src_pos):
-        src_word = fluid.layers.cast(src_word, 'int64')
+        src_word = paddle.cast(src_word, 'int64')
         src_word = paddle.squeeze(src_word, axis=-1)
         src_word_emb = self.emb0(src_word)
         src_word_emb = paddle.scale(x=src_word_emb, scale=self.src_emb_dim**0.5)

@@ -57,7 +57,7 @@ Train:
     name: SimpleDataSet
     data_dir: /content/PaddleOCR-Vietnamese/train/img_crop
     label_file_list:
-    - /content/PaddleOCR-Vietnamese/train/train_label.txt
+    - /content/PaddleOCR-Vietnamese/train/crop_label.txt
     ratio_list:
     - 1
     transforms:

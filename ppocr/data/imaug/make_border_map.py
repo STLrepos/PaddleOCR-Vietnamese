@@ -15,6 +15,7 @@
 This code is refer from:
 https://github.com/WenmuZhou/DBNet.pytorch/blob/master/data_loader/modules/make_border_map.py
 """
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -43,6 +44,10 @@ class MakeBorderMap(object):
         self.shrink_ratio = shrink_ratio
         self.thresh_min = thresh_min
         self.thresh_max = thresh_max
+        if 'total_epoch' in kwargs and 'epoch' in kwargs and kwargs[
+                'epoch'] != "None":
+            self.shrink_ratio = self.shrink_ratio + 0.2 * kwargs[
+                'epoch'] / float(kwargs['total_epoch'])
 
     def __call__(self, data):
 

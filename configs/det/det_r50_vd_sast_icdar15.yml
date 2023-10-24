@@ -59,7 +59,7 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /content/PaddleOCR-Vietnamese/train/vietnamese/train_images/
+    data_dir: ./train/vietnamese/train_images/
     label_file_list: [ ./train/train_label.txt ]
     ratio_list: [1]
     transforms:

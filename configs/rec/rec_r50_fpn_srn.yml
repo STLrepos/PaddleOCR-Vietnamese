@@ -8,13 +8,13 @@ Global:
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [0, 5000]
   cal_metric_during_train: True
-  pretrained_model: /content/PaddleOCR-Vietnamese/pretrain_models/rec_r50_vd_srn_train/best_accuracy
+  pretrained_model: ./pretrain_models/rec_r50_vd_srn_train/best_accuracy
   checkpoints:
   save_inference_dir: ./inference/SRN
   use_visualdl: False
   infer_img: doc/imgs_words/ch/word_1.jpg
   # for data or label process
-  character_dict_path: /content/PaddleOCR-Vietnamese/train/vietnamese/vn_dictionary.txt
+  character_dict_path: ./train/vietnamese/vn_dictionary.txt
   max_text_length: 25
   num_heads: 8
   infer_mode: False
@@ -58,8 +58,8 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /content/PaddleOCR-Vietnamese/train/img_crop
-    label_file_list: [ /content/PaddleOCR-Vietnamese/train/crop_label.txt]
+    data_dir: ./train/img_crop
+    label_file_list: [ ./train/crop_label.txt]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -84,9 +84,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /content/PaddleOCR-Vietnamese/train/img_crop
+    data_dir: ./train/img_crop
     label_file_list:
-    - /content/PaddleOCR-Vietnamese/train/crop_label.txt
+    - ./train/crop_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

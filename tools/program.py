@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
+from IPython.display import clear_output
 
 import os
 import sys
@@ -260,6 +261,8 @@ def train(config,
     ) == "Windows" else len(train_dataloader)
 
     for epoch in range(start_epoch, epoch_num + 1):
+        if epoch % 5 == 0:
+            clear_output()
         if train_dataloader.dataset.need_reset:
             train_dataloader = build_dataloader(
                 config, 'Train', device, logger, seed=epoch)

@@ -1,9 +1,9 @@
 Global:
   use_gpu: true
-  epoch_num: 50
+  epoch_num: 300
   log_smooth_window: 20
   print_batch_step: 2
-  save_model_dir: ./output/sast_r50_vd_ic15/
+  save_model_dir: /content/drive/MyDrive/checkpoint_paddleocr/SAST
   save_epoch_step: 1000
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [4000, 5000]
